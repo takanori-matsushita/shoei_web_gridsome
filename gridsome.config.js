@@ -14,8 +14,8 @@ function addStyleResource(rule) {
         path.resolve(__dirname, "./src/assets/sass/_reset.scss"),
         path.resolve(__dirname, "./src/assets/sass/_variables.scss"),
         path.resolve(__dirname, "./src/assets/sass/_function.scss"),
-        path.resolve(__dirname, "./src/assets/sass/_mixin-extend.scss"),
-      ],
+        path.resolve(__dirname, "./src/assets/sass/_mixin-extend.scss")
+      ]
     });
 }
 
@@ -26,8 +26,8 @@ module.exports = {
     // Load variables for all vue-files
     const types = ["vue-modules", "vue", "normal-modules", "normal"];
     // or if you use scss
-    types.forEach((type) => {
+    types.forEach(type => {
       addStyleResource(config.module.rule("scss").oneOf(type));
     });
-  },
+  }
 };

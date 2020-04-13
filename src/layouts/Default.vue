@@ -219,7 +219,8 @@
               target="_blank"
               rel="noopener"
               class="header-entry__button"
-            >ENTRY</a>
+              >ENTRY</a
+            >
           </div>
           <nav
             id="navbar"
@@ -251,10 +252,15 @@
                     <a href="job/sales.html">JOB</a>
                   </li>
                   <li class="navbar-list__item">
-                    <a href="https://www.shoei-bijutsu.co.jp/2021_graduates/people/sales/">PEOPLE</a>
+                    <a
+                      href="https://www.shoei-bijutsu.co.jp/2021_graduates/people/sales/"
+                      >PEOPLE</a
+                    >
                   </li>
                   <li class="navbar-list__item">
-                    <a href="https://www.shoei-bijutsu.co.jp/news/">ENVIRONMENT</a>
+                    <a href="https://www.shoei-bijutsu.co.jp/news/"
+                      >ENVIRONMENT</a
+                    >
                   </li>
                   <li class="navbar-list__item">
                     <a href="https://www.shoei-bijutsu.co.jp/works">ARCHIVE</a>
@@ -264,17 +270,25 @@
                       href="https://www.shoei-bijutsu.co.jp/company"
                       target="_blank"
                       rel="noopener"
-                    >COMPANY</a>
+                      >COMPANY</a
+                    >
                   </li>
                 </ul>
               </div>
             </transition>
           </nav>
         </div>
-        <g-image src="~/assets/images/header_image.png" class="header-wrap__catchcopy" />
-        <a href="#" class="scroll" v-scroll-to="{
-            el: '.main',
-          }">
+        <g-image
+          src="~/assets/images/header_image.png"
+          class="header-wrap__catchcopy"
+        />
+        <a
+          href="#"
+          class="scroll"
+          v-scroll-to="{
+            el: '.main'
+          }"
+        >
           <span class="scroll__text">scroll</span>
         </a>
       </div>
@@ -294,12 +308,16 @@
             target="_blank"
             rel="noopener"
             class="footer-entry-inner__button fade"
-          >ENTRY</a>
+            >ENTRY</a
+          >
         </div>
       </div>
       <div class="footer-inner">
         <a href="index.html">
-          <g-image src="~/assets/images/footer_logo.svg" class="footer-inner__image" />
+          <g-image
+            src="~/assets/images/footer_logo.svg"
+            class="footer-inner__image"
+          />
         </a>
       </div>
       <nav class="footer-navbar">
@@ -311,7 +329,10 @@
             <a href="job/sales.html">JOB</a>
           </li>
           <li class="footer-navbar-list__item">
-            <a href="https://www.shoei-bijutsu.co.jp/2021_graduates/people/sales/">PEOPLE</a>
+            <a
+              href="https://www.shoei-bijutsu.co.jp/2021_graduates/people/sales/"
+              >PEOPLE</a
+            >
           </li>
           <li class="footer-navbar-list__item">
             <a href="https://www.shoei-bijutsu.co.jp/news/">ENVIRONMENT</a>
@@ -320,7 +341,12 @@
             <a href="https://www.shoei-bijutsu.co.jp/works">ARCHIVE</a>
           </li>
           <li class="footer-navbar-list__item">
-            <a href="https://www.shoei-bijutsu.co.jp/company" target="_blank" rel="noopener">COMPANY</a>
+            <a
+              href="https://www.shoei-bijutsu.co.jp/company"
+              target="_blank"
+              rel="noopener"
+              >COMPANY</a
+            >
           </li>
         </ul>
       </nav>
@@ -821,70 +847,3 @@ a {
   }
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      windowWidth: window.innerWidth,
-      windowY: window.pageYOffset,
-      windowHeight: window.innerHeight,
-      fadeConts: [],
-      fadeContsRect: [],
-      fadeContsTop: [],
-      remainder: 200,
-      activeNav: false,
-      navMenu: false
-    };
-  },
-  mounted() {
-    window.addEventListener("resize", this.calcWindowWidth);
-    window.addEventListener("resize", this.calcWindowHeight);
-    window.addEventListener("scroll", this.handleScroll);
-    window.addEventListener("load", this.fadeElements);
-    this.fadeConts = document.querySelectorAll(".fade");
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.calcWindowWidth);
-    window.removeEventListener("resize", this.calcWindowHeight);
-    window.removeEventListener("scroll", this.handleScroll);
-    window.addEventListener("load", this.fadeElements);
-  },
-  methods: {
-    calcWindowWidth: function() {
-      this.windowWidth = window.innerWidth;
-    },
-    calcWindowHeight: function() {
-      this.windowHeight = window.innerHeight;
-    },
-    fadeElements: function() {
-      for (var i = 0; i < this.fadeConts.length; i++) {
-        this.fadeContsRect.push(this.fadeConts[i].getBoundingClientRect());
-      }
-      for (var i = 0; i < this.fadeContsRect.length; i++) {
-        this.fadeContsTop.push(this.fadeContsRect[i].top + this.windowY);
-      }
-    },
-    handleScroll: function() {
-      this.windowY = window.pageYOffset;
-      for (var i = 0; i < this.fadeConts.length; i++) {
-        // 要素が画面の下端にかかったら
-        if (
-          this.windowY >
-          this.fadeContsTop[i] - this.windowHeight + this.remainder
-        ) {
-          // .showを付与
-          this.fadeConts[i].classList.add("show");
-        } else {
-          // 逆に.showを削除
-          this.fadeConts[i].classList.remove("show");
-        }
-      }
-    },
-    navOpen: function() {
-      this.isActiveNav = !this.isActiveNav;
-      this.navMenu = !this.navMenu;
-    }
-  }
-};
-</script>
