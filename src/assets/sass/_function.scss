@@ -2,3 +2,7 @@ $baseFontSize: 16;
 @function rem($px, $base: $baseFontSize) {
   @return $px / $base * 1rem;
 }
+
+@function col($i) {
+  @return 100% / 12 * $i;
+}
