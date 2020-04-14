@@ -65,3 +65,49 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+//web font import
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&subset=japanese");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $baseFontSize + px;
+}
+
+body {
+  font-family: "Noto Sans JP";
+}
+
+a {
+  text-decoration: none;
+  color: $lightBlack;
+}
+
+.sp-only {
+  display: block;
+  @include media(pc) {
+    display: none;
+  }
+}
+
+.fade {
+  opacity: 0;
+  transition: 1s;
+  transform: translateY(50px);
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.position-outside {
+  position: absolute;
+  left: -9999px;
+}
+</style>
