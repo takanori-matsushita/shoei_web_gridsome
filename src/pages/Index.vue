@@ -301,9 +301,14 @@
 </template>
 
 <script>
+import TopLayout from "~/layouts/Top.vue";
+
 export default {
   metaInfo: {
     title: "top"
+  },
+  components: {
+    Top: TopLayout
   }
 };
 </script>

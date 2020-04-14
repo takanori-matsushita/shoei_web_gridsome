@@ -2,7 +2,6 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from "~/layouts/Default.vue";
-import TopLayout from "~/layouts/Top.vue";
 import utility from "~/assets/js/utility.js";
 import VueScrollTo from "vue-scrollto";
 
@@ -10,7 +9,6 @@ export default function(Vue, { router, head, isClient }) {
   head.htmlAttrs = { lang: "ja" };
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
-  Vue.component("Top", TopLayout);
   Vue.mixin(utility);
   Vue.use(VueScrollTo, {
     duration: "1000",
