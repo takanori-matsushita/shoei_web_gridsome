@@ -488,6 +488,9 @@ a {
       transform: translateX(-50%) rotate(180deg);
     }
   }
+  &__job {
+    left: 0;
+  }
 }
 
 .svgFooter {
