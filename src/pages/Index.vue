@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Top>
     <main class="main main--top">
       <section id="description" class="description">
         <div class="description-textbox fade">
@@ -297,7 +297,7 @@
         </div>
       </section>
     </main>
-  </Layout>
+  </Top>
 </template>
 
 <script>
